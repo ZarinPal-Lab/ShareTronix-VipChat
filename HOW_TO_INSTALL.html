@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>کامت چت VIP</title>
+<style>
+body , html{
+margin: 0px;
+	padding:0px;
+	color: #000;
+	font-family: tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-decoration: none;
+ width:100%;
+
+	position:relative;
+
+	background-color: #c0deed;
+
+
+height:100%;
+}
+#main{
+width:900px;
+
+padding:10px;
+margin:0px auto;
+background:#fff;
+color:#000;
+overflow:visible;
+	position:relative;
+	direction:rtl;
+}
+code{
+direction:ltr;
+txt-align:left;
+padding:10px;
+border:dotted 2px #999999;
+background:#dbdedc;
+margin:20px;
+display:inline-block;
+max-height:300px;
+overflow:auto;
+width:95%;
+}
+</style>
+</head>
+
+<body>
+
+<div id="main">
+<div style="background:pink;padding:10px;font-size:14px;">
+قبل از انجام هر تغییر از فایل بک آپ بگیرید <br>
+در کد هایی که در فایل vip-chat.php در پوشه controllers قرار میدهید تمام مقادیر $merchantID را به مقدار خود تغییر دهید<br>
+
+<b>تهیه توسط آرش توانایی - 09130246374 - www.sharetronix.bolur.ir & www.bolur.ir</b>
+</div>
+<center>
+<font color="green" size="4">ثبت آگهی - تهیه کننده امید رضا توانایی- حامی: شرکت زرین پال</font>
+</center><br><br>
+1- ابتدا فایل ها را در محل مناسب قرار بدید <br><br><br>
+
+
+
+2- به system/conf_main.php برید و کد زیر را بیابید
+<br>
+<code>$C->API_ID		= 0; </code>.
+<br>
+بعد از آن اضافه کنید
+
+<br>
+
+<code>
+$C->VIP_CHAT_1 = '1000';<br>
+$C->VIP_CHAT_3 = '2000';<br>
+$C->VIP_CHAT_6 = '3000';<br>
+$C->VIP_CHAT_12 = '5000';<br><br><br>
+
+<div style="background:pink;padding:10px;font-size:14px;">
+قیمت دوره ها می باشد که به تومان است
+</div>
+</code>
+
+
+
+
+<br>
+3- به themes/YOURTHEME/html/footer.php برید و کد لود کننده کامت چت را کات  کنید و در جایی نگه دارید که بعدا باهاش کار داریم
+
+<br>
+
+3-1: در همین فایل footer.php همان جایی که در مرحله قبل کد را کات کریدید ، کد زیر را قرار دهید
+
+<code>
+&lt;? if(!$this-&gt;network-&gt;get_vip_chat($this-&gt;user-&gt;info-&gt;id)){ ?&gt;<br />
+	<br />
+&lt;script&gt;<br />
+<br />
+function open_vip_chat(){<br />
+var dv_vc = $('#vip_2_chat');<br />
+if(dv_vc.css('display') == 'none'){<br />
+dv_vc.slideDown('slow');<br />
+return;<br />
+}else{<br />
+dv_vc.slideUp('slow');<br />
+return;<br />
+}<br />
+return;<br />
+<br />
+}<br />
+<br />
+&lt;/script&gt;<br />
+<br />
+<br />
+<br />
+&lt;div style=&quot;display:none;background:#eeeeee;position:fixed;bottom:22px;border:solid 1px #cccccc;width:213px;right:100px;&quot; id=&quot;vip_2_chat&quot;&gt;<br />
+&lt;?= msgbox('بسته ها:','شارژ مورد نظر را انتخاب گنید',false);?&gt;<br />
+&lt;form action=&quot;&lt;?=$C-&gt;SITE_URL?&gt;vip-chat/tab:sabad&quot; method=&quot;POST&quot; &gt;<br />
+&lt;table id=&quot;setform&quot; cellspacing=&quot;5&quot;&gt;<br />
+&lt;tr&gt;<br />
+&lt;td&gt;&lt;input type=&quot;radio&quot; name=&quot;what&quot; value=&quot;1&quot;/&gt; &lt;/td&gt;&lt;td class=&quot;setparam&quot; style=&quot;padding-top:9px;&quot;&gt;یک ماهه &lt;b style=&quot;color:red&quot;&gt;&lt;?= $C-&gt;VIP_CHAT_1?&gt;&lt;/b&gt; تومان&lt;/td&gt;<br />
+&lt;/tr&gt;<br />
+<br />
+&lt;tr&gt;<br />
+&lt;td&gt;&lt;input type=&quot;radio&quot; name=&quot;what&quot; value=&quot;3&quot;/&gt; &lt;/td&gt;&lt;td class=&quot;setparam&quot; style=&quot;padding-top:9px;&quot;&gt;سه ماهه  &lt;b style=&quot;color:red&quot;&gt;&lt;?= $C-&gt;VIP_CHAT_3?&gt;&lt;/b&gt; تومان&lt;/td&gt;<br />
+&lt;/tr&gt;<br />
+&lt;tr&gt;<br />
+&lt;td&gt;&lt;input type=&quot;radio&quot; name=&quot;what&quot; value=&quot;6&quot;/&gt; &lt;/td&gt;&lt;td class=&quot;setparam&quot; style=&quot;padding-top:9px;&quot;&gt;شش ماهه &lt;b style=&quot;color:red&quot;&gt; &lt;?= $C-&gt;VIP_CHAT_6?&gt;&lt;/b&gt; تومان&lt;/td&gt;<br />
+&lt;/tr&gt;<br />
+&lt;tr&gt;<br />
+&lt;td&gt;&lt;input type=&quot;radio&quot; name=&quot;what&quot; value=&quot;12&quot;/&gt; &lt;/td&gt;&lt;td class=&quot;setparam&quot; style=&quot;padding-top:9px;&quot;&gt;یک ساله  &lt;b style=&quot;color:red&quot;&gt;&lt;?= $C-&gt;VIP_CHAT_12?&gt;&lt;/b&gt; تومان&lt;/td&gt;<br />
+&lt;/tr&gt;<br />
+<br />
+&lt;/table&gt;<br />
+<br />
+<br />
+&lt;input style=&quot;width:100%&quot; type=&quot;submit&quot; name=&quot;select&quot; value=&quot;خرید&quot;/&gt;<br />
+&lt;/form&gt;<br />
+&lt;/div&gt;<br />
+&lt;div id=&quot;vip_chat&quot; style=&quot;position:fixed;bottom:0px;right:100px;&quot;&gt;<br />
+<br />
+<br />
+<br />
+<br />
+&lt;a onclick=&quot;open_vip_chat();&quot; href=&quot;javascript:;&quot;&gt;&lt;img src=&quot;&lt;?= $C-&gt;SITE_URL.'themes/'.$C-&gt;THEME.\/imgs/'?&gt;chatvip.png&quot; style=&quot;border:0px&quot; /&gt;&lt;/a&gt;<br />
+&lt;/div&gt;<br />
+&lt;?}else{?&gt;<br />
+<br />
+<h1>COMET CHAT CODE</h1>
+&lt;?}?&gt;<br />
+<br />
+
+</code>
+<div style="background:pink;padding:10px;font-size:14px;">
+در بالا به جای واژه COMET CHAT CODE در آخر ، باید همان کدهای لود کامت چت را که در مرحله 3 گفتیم کات کنید را قرار بدید
+</div>
+
+
+
+
+<br>
+
+
+4- فایل system/clasess/class_network.php را باز کنید و در آخر قبل از مقدار زیر :
+
+<code>
+	}
+	
+?&gt;	
+							
+</code>
+
+کد زیر را قرار دهید:
+<br>
+<code>
+public function get_vip_chat($id){<br>
+<br>
+$q = $this-&gt;db2-&gt;query('SELECT * FROM users_vip_chat WHERE user_id="'.$id.'" LIMIT 1');<br>
+$o = $this-&gt;db2-&gt;fetch_object($q);<br>
+if(!$o){<br>
+return false;<br>
+}<br>
+if($o-&gt;next_date &gt; time()){<br>
+return true;<br>
+}else{<br>
+$this-&gt;db2-&gt;query('DELETE FROM users_add_pay WHERE id="'.$o-&gt;id.'"');<br>
+return false;<br>
+}<br>
+<br>
+<br>
+return false;<br>
+} <br>
+							
+</code>
+
+
+5- به phpmyadmin برید و در برگه sql در بالا کد زیر را اجرا فرمایید
+
+<code>
+
+CREATE TABLE IF NOT EXISTS `users_vip_chat` ( <br>
+  `id` int(10) NOT NULL AUTO_INCREMENT,<br>
+  `user_id` int(10) NOT NULL,<br>
+  `date` varchar(128) COLLATE utf8_persian_ci NOT NULL,<br>
+  `next_date` varchar(128) COLLATE utf8_persian_ci NOT NULL,<br>
+  `matn` varchar(128) COLLATE utf8_persian_ci NOT NULL,<br>
+  `baste` int(2) NOT NULL DEFAULT '0',<br>
+  `trak` varchar(128) COLLATE utf8_persian_ci NOT NULL,<br>
+  PRIMARY KEY (`id`),<br>
+  KEY `user_id` (`user_id`)<br>
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci AUTO_INCREMENT=1 ;");	<br>
+
+</code>
+</div>
+</body>
+</html>

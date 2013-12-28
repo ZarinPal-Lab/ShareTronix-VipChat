@@ -1,0 +1,1 @@
+<?php			$this->load_template('header.php');	?>			<? if($D->error) { echo errorbox('خطا:',$D->errmsg); }elseif($D->submit){				echo okbox('موفقیت آمیز','پرداخت شد با شماره پرداخت'.$D->trak);		}		?><?php		$this->load_template('footer.php');	?>
